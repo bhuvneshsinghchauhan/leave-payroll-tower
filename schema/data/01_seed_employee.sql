@@ -13,12 +13,3 @@ values ('Rohit','Kumar','rohit@corp.local','08-20-2024','HR');
 
 insert into employee (first_name,last_name,email,doj,dept_code)
 values ('Sachin','Jain','sachin@corp.local','01-19-2023','IT');
-
-insert into leave_type (type_name,max_days_annual) 
-values ('casual','10');
-
-insert into leave_type(type_name,max_days_annual)
-values('paid','15');
-
-insert into leave_type(type_name,max_days_annual)
-values('bereavement','5');
