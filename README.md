@@ -37,7 +37,7 @@ leave-payroll-tower/
 - Seeded sample employees and leave types
 - Committed DDL & seed data to `schema/objects` and `schema/data`
 
-**2025-08-04**
+**2025-08-02**
 - Added remaining schema objects (LEAVE_REQUEST, HOLIDAY, PAYROLL_ADJ, Auth tables)
 - Seeded realistic test data across all tables
 
@@ -45,6 +45,7 @@ leave-payroll-tower/
 - Built Interactive Reports for EMPLOYEE, LEAVE_REQUEST, PAYROLL_ADJ
 - Enabled CRUD for all three
 - Added screenshots of working pages
+- Added database tables relation diagram
 
 ---
 
@@ -73,6 +74,11 @@ leave-payroll-tower/
 - [Employee IR](screenshots/Screenshot%202025-08-04_employee_ir.png)
 - [Leave Request IR](screenshots/Screenshot%202025-08-04_leave_req_ir.png)
 - [Payroll Adjustment IR](screenshots/Screenshot%202025-08-04_payroll_adj_ir.png)
+
+---
+
+## Docs
+- [ERD Diagram](docs/erd_v1.svg)
 
 ---
 
