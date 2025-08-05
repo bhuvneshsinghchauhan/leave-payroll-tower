@@ -47,6 +47,14 @@ leave-payroll-tower/
 - Added screenshots of working pages
 - Added database tables relation diagram
 
+**2025-08-05**
+- Implemented custom authentication using `lpct_pkg.fn_validate_login`
+- Added SHA256 password hashing via `lpct_pkg.prc_set_user_password`
+- Roles and User ID are now set via Application Process (On New Session) into `G_USER_ROLE` and `G_USER_ID`
+- Created `Is HR?` and `Is Employee?` authorization schemes and applied to relevant pages
+- No post-login redirect; users land on Home page and page-level authorization manages access
+
+
 ---
 
 ## Current Features
@@ -56,6 +64,11 @@ leave-payroll-tower/
   - Employee management
   - Leave requests
   - Payroll adjustments
+- Custom authentication & authorization implemented:
+  - Hashed password storage (SHA256)
+  - Role-based page protection using Application Items
+  - Centralized logic inside `lpct_pkg` package
+
 
 ---
 
