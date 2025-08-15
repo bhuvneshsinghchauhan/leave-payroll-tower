@@ -10,5 +10,10 @@ PROCEDURE prc_set_user_password (
     p_plain_password IN VARCHAR2
 );
 
+PROCEDURE prc_sync_holidays (
+  p_year    IN VARCHAR2 DEFAULT TO_CHAR(SYSDATE, 'YYYY'),
+  p_country IN VARCHAR2 DEFAULT 'IN'
+);
+
 end "LPCT_PKG";
 /

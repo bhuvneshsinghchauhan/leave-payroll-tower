@@ -45,5 +45,40 @@ END prc_set_user_password;
 
 ---------------------------------------------------------------------------
 
+PROCEDURE prc_sync_holidays (
+  p_year    IN VARCHAR2 DEFAULT TO_CHAR(SYSDATE, 'YYYY'),
+  p_country IN VARCHAR2 DEFAULT 'IN'
+) AS
+  l_url      VARCHAR2(500);
+  l_response CLOB;
+BEGIN
+  l_url := 'https://date.nager.at/api/v3/PublicHolidays/' || p_year || '/' || p_country;
+
+  l_response := apex_web_service.make_rest_request(
+    p_url => l_url,
+    p_http_method => 'GET',
+    p_credential_static_id => 'public_holiday_api'
+  );
+
+  INSERT INTO holiday (HOLIDAY_DATE, HOLIDAY_NAME, COUNTRY_CODE)
+  SELECT 
+    TO_DATE(j.date_str, 'MM-DD-YYYY'),
+    j.name,
+    j.country_code
+  FROM JSON_TABLE(
+    l_response,
+    '$[*]'
+    COLUMNS (
+      date_str     VARCHAR2(20) PATH '$.date',
+      name         VARCHAR2(200) PATH '$.name',
+      country_code VARCHAR2(10)  PATH '$.countryCode'
+    )
+  ) j;
+
+  COMMIT;
+END;
+
+---------------------------------------------------------------------------
+
 end "LPCT_PKG";
 /
