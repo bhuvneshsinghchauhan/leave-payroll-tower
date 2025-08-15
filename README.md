@@ -95,6 +95,15 @@ leave-payroll-tower/
 
 ---
 
+### Assets
+
+- `theme-custom.css`: Centralized CSS file for global UI styling, including:
+  - Leave request status highlighting
+  - Utility spacing/text classes
+  - Custom button variants
+
+---
+
 ## Vision
 This project is part of my **Oracle APEX interview preparation and portfolio building** — showcasing end-to-end app development:
 - From schema design to deployment
